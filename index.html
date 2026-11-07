@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>thermos-1 Market | Termos y botellas térmicas</title>
+    <meta name="description" content="Descubre termos y botellas térmicas de diferentes marcas en Frost Market.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+
+</head>
+
+<body>
+
+<header class="site-header">
+    <nav class="navbar" aria-label="Navegación principal">
+        <a href="#inicio" class="logo">THERMOS <span>MARKET</span></a>
+
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="#marcas">Marcas</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+        <button
+            class="cart-toggle"
+            id="cartToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="cartDropdown"
+        >
+            <span class="cart-icon">🛒</span>
+            Carrito (<span id="cartCount">0</span>)
+        </button>
+    </nav>
+
+    <!-- El carrito se despliega debajo de la barra -->
+    <div class="cart-dropdown" id="cartDropdown" hidden>
+        <div class="cart-heading">
+            <h2>Mi carrito</h2>
+            <button class="close-cart" id="closeCart" type="button" aria-label="Cerrar carrito">×</button>
+        </div>
+
+        <div class="cart-items" id="cartItems">
+            <p class="cart-empty">
+                <span class="empty-icon">🛍️</span>
+                Tu carrito está vacío.<br>
+                ¡Encuentra tu termo ideal!
+            </p>
+        </div>
+
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <strong id="cartSubtotal">$0</strong>
+            </div>
+            <div class="summary-row">
+                <span>Envío</span>
+                <strong id="shippingCost">Se calcula después</strong>
+            </div>
+            <div class="summary-row total">
+                <span>Total de productos</span>
+                <strong id="cartTotal">$0</strong>
+            </div>
+        </div>
+
+        <button class="checkout-btn" id="checkoutBtn" type="button">
+            Continuar compra
+        </button>
+        <button class="continue-shopping" id="continueShopping" type="button">
+            Seguir comprando
+        </button>
+    </div>
+</header>
+
+<main>
+    <!-- PORTADA -->
+    <section class="hero" id="inicio">
+        <div>
+            <span class="eyebrow">Tu tienda multimarca</span>
+            <h1>Encuentra tu <span>termo ideal.</span></h1>
+            <p>
+                Descubre termos y botellas térmicas de diferentes marcas,
+                capacidades y estilos. Encuentra el compañero perfecto
+                para tus días de estudio, trabajo y aventura.
+            </p>
+            <a href="#catalogo" class="btn">Explorar catálogo →</a>
+        </div>
+
+        <div class="hero-image">
+            <img
+        src="img/todos los termos.png"
+                alt="Botella reutilizable para llevar tus bebidas"
+            >
+        </div>
+    </section>
+
+    <!-- MARCAS -->
+    <section class="content-section" id="marcas">
+        <div class="section-heading">
+            <span class="eyebrow">Nuestras marcas</span>
+            <h2>Marcas para cada estilo</h2>
+            <p>Explora diferentes opciones y encuentra la que mejor se adapte a ti.</p>
+        </div>
+
+        <div class="brands-grid">
+            <a href="#catalogo" class="brand-card" data-brand-link="stanley">
+                <h3>Stanley</h3>
+                <p>Diseño para tu rutina</p>
+            </a>
+            <a href="#catalogo" class="brand-card" data-brand-link="manna">
+                <h3>Manna</h3>
+                <p>Estilo y funcionalidad</p>
+            </a>
+            <a href="#catalogo" class="brand-card" data-brand-link="buffer">
+                <h3>Buffer</h3>
+                <p>Para acompañarte cada día</p>
+            </a>
+            <a href="#catalogo" class="brand-card" data-brand-link="OWALA">
+                <h3>OWALA</h3>
+                <p>Soluciones térmicas</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- CATÁLOGO -->
+    <section class="content-section" id="catalogo">
+        <div class="section-heading">
+            <span class="eyebrow">Catálogo</span>
+            <h2>Encuentra tu próximo termo</h2>
+            <p>Agrega tus favoritos al carrito y revisa tu selección antes de comprar.</p>
+        </div>
+
+        <div class="filters">
+            <button class="active" type="button" data-filter="todos">Todos</button>
+            <button type="button" data-filter="stanley">Stanley</button>
+            <button type="button" data-filter="manna">Manna</button>
+            <button type="button" data-filter="buffer">Buffer</button>
+            <button type="button" data-filter="OWALA">OWALA</button>
+        </div>
+
+        <div class="carousel-shell">
+            <button class="carousel-arrow carousel-prev" type="button" aria-label="Ver productos anteriores" id="carouselPrev">‹</button>
+            <div class="products-grid" id="productsCarousel">
+            <article class="product-card" data-brand="stanley">
+                <img
+                    src="img/stanely.jfif"
+                    alt="Botella reutilizable estilo Stanley"
+                    loading="lazy"
+                >
+                <div class="product-info">
+                    <div class="product-brand">Stanley</div>
+                    <h3>Botella térmica</h3>
+                    <p>Una opción para llevar tus bebidas durante el día.</p>
+                    <div class="product-price" data-price-label>$89.900 COP</div>
+                    <button class="view-product" type="button">Ver detalles</button>
+                    <button class="add-to-cart" type="button"
+                        data-id="stanley-1" data-name="Botella térmica Stanley"
+                        data-price="89900"
+                        data-image="img/stanely.jfif">
+                        Añadir al carrito
+                    </button>
+                </div>
+            </article>
+              <div class="products-grid" id="productsCarousel">
+            <article class="product-card" data-brand="stanley">
+                <img
+                    src="img/stanley37.jfif"
+                    alt="Botella reutilizable estilo Stanley"
+                    loading="lazy"
+                >
+                <div class="product-info">
+                    <div class="product-brand">Stanley</div>
+                    <h3>Botella térmica</h3>
+                    <p>Una opción para llevar tus bebidas durante el día.</p>
+                    <div class="product-price" data-price-label>$89.900 COP</div>
+                    <button class="view-product" type="button">Ver detalles</button>
+                    <button class="add-to-cart" type="button"
+                        data-id="stanley-1" data-name="Botella térmica Stanley"
+                        data-price="89900"
+                        data-image="img/stanley37.jfif">
+                        Añadir al carrito
+                    </button>
+                </div>
+            </article>
+            
+            <article class="product-card" data-brand="manna">
+                <img
+                    src="img/51kdLrUg-HL.jpg"
+                    alt="Botella reutilizable estilo Manna"
+                    loading="lazy"
+                >
+                <div class="product-info">
+                    <div class="product-brand">Manna</div>
+                    <h3>Botella de acero</h3>
+                    <p>Diseño práctico para acompañarte fuera de casa.</p>
+                    <div class="product-price" data-price-label>$64.900 COP</div>
+                    <button class="view-product" type="button">Ver detalles</button>
+                    <button class="add-to-cart" type="button"
+                        data-id="manna-1" data-name="Botella de acero Manna"
+                        data-price="64900"
+                        data-image="img/51kdLrUg-HL.jpg">
+                        Añadir al carrito
+                    </button>
+                </div>
+            </article>
+   <div class="products-grid" id="productsCarousel">
+            <article class="product-card" data-brand="stanley">
+                <img
+                    src="img/stani88.jfif"
+                    alt="Botella reutilizable estilo Stanley"
+                    loading="lazy"
+                >
+                <div class="product-info">
+                    <div class="product-brand">Stanley</div>
+                    <h3>Botella térmica</h3>
+                    <p>Una opción para llevar tus bebidas durante el día.</p>
+                    <div class="product-price" data-price-label>$89.900 COP</div>
+                    <button class="view-product" type="button">Ver detalles</button>
+                    <button class="add-to-cart" type="button"
+                        data-id="stanley-1" data-name="Botella térmica Stanley"
+                        data-price="89900"
+                        data-image="img/stani88.jfif">
+                        Añadir al carrito
+                    </button>
+                </div>
+            </article>
+   <div class="products-grid" id="productsCarousel">
+        
+            <article class="product-card" data-brand="manna">
+                <img
+                    src="img/MANNA.jfif"
+                    alt="Botella reutilizable estilo manna"
+                    loading="lazy"
+                >
+                <div class="product-info">
+                    <div class="product-brand">Manna</div>
+                    <h3>Botella térmica</h3>
+                    <p>Una opción para llevar tus bebidas durante el día.</p>
+                    <div class="product-price" data-price-label>$89.900 COP</div>
+                    <button class="view-product" type="button">Ver detalles</button>
+                    <button class="add-to-cart" type="button"
+                        data-id="stanley-1" data-name="Botella térmica manna"
+                        data-price="89900"
+                        data-image="img/MANNA.jfif">
+                        Añadir al carrito
+                    </button>
+                </div>
+            </article>
+
+            <article class="product-card" data-brand="buffer">
+                <img
+                    src="img/buffer2.jfif"
+                    alt="Botella reutilizable estilo Buffer"
+                    loading="lazy"
+                >
+                <div class="product-info">
+                    <div class="product-brand">Buffer</div>
+                    <h3>Termo portátil</h3>
+                    <p>Una alternativa para tu jornada de estudio o trabajo.</p>
+                    <div class="product-price" data-price-label>$59.900 COP</div>
+                    <button class="view-product" type="button">Ver detalles</button>
+                    <button class="add-to-cart" type="button"
+                        data-id="buffer-1" data-name="Termo portátil Buffer"
+                        data-price="59900"
+                        data-image="img/buffer2.jfif">
+                        Añadir al carrito
+                    </button>
+                </div>
+            </article>
+            
+            <article class="product-card" data-brand="buffer">
+                <img
+                    src="img/buffer.webp"
+                    alt="Botella reutilizable estilo Buffer"
+                    loading="lazy"
+                >
+                <div class="product-info">
+                    <div class="product-brand">Buffer</div>
+                    <h3>Termo portátil</h3>
+                    <p>Una alternativa para tu jornada de estudio o trabajo.</p>
+                    <div class="product-price" data-price-label>$59.900 COP</div>
+                    <button class="view-product" type="button">Ver detalles</button>
+                    <button class="add-to-cart" type="button"
+                        data-id="buffer-1" data-name="Termo portátil Buffer"
+                        data-price="59900"
+                        data-image="img/buffer.webp">
+                        Añadir al carrito
+                    </button>
+                </div>
+            </article>
+
+            <article class="product-card" data-brand="OWALA">
+                <img
+                    src="img/images.jfif"
+                    alt="Botella reutilizable estilo Thermos"
+                    loading="lazy"
+                >
+                <div class="product-info">
+                    <div class="product-brand">Owala</div>
+                    <h3>Botella térmica clásica</h3>
+                    <p>Una botella para llevar tus bebidas favoritas.</p>
+                    <div class="product-price" data-price-label>$74.900 COP</div>
+                    <button class="view-product" type="button">Ver detalles</button>
+                    <button class="add-to-cart" type="button"
+                        data-id="thermos-1" data-name="Botella térmica Thermos"
+                        data-price="74900"
+                        data-image="img/images.jfif">
+                        Añadir al carrito
+                    </button>
+                </div>
+            </article>
+            </div>
+            <button class="carousel-arrow carousel-next" type="button" aria-label="Ver productos siguientes" id="carouselNext">›</button>
+        </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section class="content-section">
+        <div class="section-heading">
+            <span class="eyebrow">¿Por qué Frost Market?</span>
+            <h2>Compra de forma práctica</h2>
+            <p>Una experiencia sencilla para comparar y elegir tu próximo termo.</p>
+        </div>
+
+        <div class="benefits-grid">
+            <article class="benefit-card">
+                <span class="icon">❄️</span>
+                <h3>Opciones térmicas</h3>
+                <p>Explora productos diseñados para ayudar a conservar la temperatura de tus bebidas.</p>
+            </article>
+            <article class="benefit-card">
+                <span class="icon">🛍️</span>
+                <h3>Varias marcas</h3>
+                <p>Compara estilos y opciones en un solo catálogo.</p>
+            </article>
+            <article class="benefit-card">
+                <span class="icon">♻️</span>
+                <h3>Reutilizables</h3>
+                <p>Encuentra alternativas reutilizables para acompañar tu rutina.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="content-section about" id="nosotros">
+        <div class="about-inner">
+            <span class="eyebrow">Sobre nosotros</span>
+            <h2>Tu termo, tu estilo, tu día</h2>
+            <p>
+                Frost Market es una tienda multimarca pensada para facilitar
+                la búsqueda de termos y botellas térmicas. Reunimos distintas
+                alternativas para que puedas comparar diseños y elegir el
+                producto que mejor se adapte a tus necesidades.
+            </p>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="content-section" id="contacto">
+        <div class="contact-box">
+            <span class="eyebrow">Contacto</span>
+            <h2>¿Tienes alguna pregunta?</h2>
+            <p>
+                Estamos aquí para ayudarte a conocer las opciones disponibles.
+                Agrega tus productos favoritos al carrito para revisar tu selección.
+            </p>
+            <a class="btn" href="#catalogo">Ver catálogo</a>
+        </div>
+    </section>
+
+    <!-- VISTA DE DETALLE DEL PRODUCTO -->
+    <section class="product-detail-view" id="productDetailView" aria-hidden="true">
+        <div class="detail-topbar">
+            <button type="button" class="detail-back" id="detailBack">← Volver al catálogo</button>
+            <div class="detail-breadcrumb">Inicio <span>›</span> Catálogo <span>›</span> <strong id="detailBreadcrumbName">Producto</strong></div>
+        </div>
+
+        <div class="detail-layout">
+            <div class="detail-gallery">
+                <div class="detail-thumbnails" id="detailThumbnails">
+                    <button type="button" class="detail-thumb active" aria-label="Ver imagen del producto">
+                        <img id="detailThumbImage" src="" alt="">
+                    </button>
+                </div>
+                <div class="detail-main-image">
+                    <img id="detailMainImage" src="" alt="Imagen del producto">
+                </div>
+            </div>
+
+            <div class="detail-information">
+                <div class="detail-brand" id="detailBrand">MARCA</div>
+                <h1 id="detailName">Nombre del producto</h1>
+                <div class="detail-rating"><span>★★★★★</span> <small>4.8 (reseñas de ejemplo)</small></div>
+
+                <div class="detail-price-row">
+                    <strong id="detailPrice">$0</strong>
+                    <span class="detail-stock">Disponible</span>
+                </div>
+                <p class="detail-tax-note">Precio en pesos colombianos (COP)</p>
+
+                <p class="detail-description" id="detailDescription"></p>
+
+                <div class="detail-actions">
+                    <div class="detail-quantity">
+                        <button type="button" id="detailMinus" aria-label="Disminuir cantidad">−</button>
+                        <span id="detailQuantity">1</span>
+                        <button type="button" id="detailPlus" aria-label="Aumentar cantidad">+</button>
+                    </div>
+                    <button type="button" class="detail-add-button" id="detailAddToCart">Agregar al carrito</button>
+                    <button type="button" class="detail-favorite" id="detailFavorite" aria-label="Agregar a favoritos">♡</button>
+                </div>
+
+                <div class="detail-features">
+                    <h2>Características del producto</h2>
+                    <ul>
+                        <li><span>Tipo:</span> Termo / botella reutilizable</li>
+                        <li><span>Material:</span> Acero inoxidable (según referencia)</li>
+                        <li><span>Uso:</span> Personal, estudio y trabajo</li>
+                        <li><span>Disponibilidad:</span> Sujeto a inventario</li>
+                    </ul>
+                </div>
+
+                <div class="detail-extra">
+                    <details open>
+                        <summary>Descripción</summary>
+                        <p id="detailLongDescription">Una opción práctica para llevar tus bebidas favoritas durante el día.</p>
+                    </details>
+
+                      
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <a href="#inicio" class="logo">THERMOS <span>MARKET</span></a>
+    <p>Termos y botellas térmicas para acompañar tu día.</p>
+    <div class="footer-bottom">
+        © 2026 Thermos Market. Proyecto académico de tienda online.
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
